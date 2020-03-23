@@ -1,0 +1,19 @@
+{
+    "name": "rmamunur105/wd-ac",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Mamun",
+            "email": "rmamunur105@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Wd\\Ac\\": "includes/"
+        },
+        "files":[]
+    }
+}
