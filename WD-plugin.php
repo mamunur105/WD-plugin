@@ -74,7 +74,14 @@ final class WD_ac{
 	}
 
 	public function init_plugin(){
-		new Wd\Ac\Admin\Menus();	
+		if (is_admin()) {
+			new Wd\Ac\Admin();	
+		}else{
+			
+			new Wd\Ac\Frontend();	
+			
+		}
+		
 	}
 
 

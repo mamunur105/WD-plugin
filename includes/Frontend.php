@@ -2,11 +2,12 @@
 namespace Wd\Ac;
 
 /**
- * The admin class
+ * 
  */
-class Admin {
+class Frontend
+{
 	
 	function __construct(){
-		new Admin\Menus();
+		new Frontend\Shortcode();
 	}
 }
