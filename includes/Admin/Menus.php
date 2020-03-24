@@ -12,11 +12,20 @@ class Menus {
 	}
 
 	function admin_menu(){
-		add_menu_page(__( 'Wd Ac', 'wdac' ),  __( 'Ac', 'wdac' ),'manage_options','wd-ac', [$this,'plugin_page'], 'dashicons-buddicons-topics' );
+		$parent_slug = 'wd-ac';
+		$capability = 'manage_options';
+		add_menu_page(__( 'Wd Ac', 'wdac' ),  __( 'Ac', 'wdac' ),$capability,$parent_slug, [$this,'address_book'], 'dashicons-buddicons-topics' );
+		add_submenu_page( $parent_slug,  __( 'Address book', 'wdac' ),__( 'Address book', 'wdac' ) , $capability,$parent_slug,[$this,'address_book'] );
+		add_submenu_page( $parent_slug,  __( 'Settings', 'wdac' ),__( 'Settings', 'wdac' ) , $capability,'wd-settings',[$this,'address_book_settings'] );
 	}
 
-	function plugin_page(){
-		echo "Hello world ";
+	function address_book(){
+		$Addressbook = new Addressbook();
+		$Addressbook->plugin_page();
+	}
+	
+	function address_book_settings(){
+		echo "Hello settings";
 	}
 
 }
