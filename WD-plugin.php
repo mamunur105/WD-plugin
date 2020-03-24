@@ -1,16 +1,16 @@
 <?php
 /**
  * Plugin Name:       WD-plugin
- * Plugin URI:        https://example.com/plugins/the-basics/
+ * Plugin URI:        https://profiles.wordpress.org/mamunur105/
  * Description:       Handle the basics with this plugin.
  * Version:           1.10.3
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Mamun
- * Author URI:        https://author.example.com/
+ * Author URI:        https://profiles.wordpress.org/mamunur105/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       my-basics-plugin
+ * Text Domain:       wdac
  * Domain Path:       /languages
  */
 
