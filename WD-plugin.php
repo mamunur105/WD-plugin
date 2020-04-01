@@ -31,9 +31,9 @@ final class WD_ac{
 	 *
 	 */
 	private function __construct(){
+
 		$this->define_constant();
 		// echo WD_AC_URL;
-
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
 		add_action('plugin_loaded',[ $this,'init_plugin' ]);
 	}
@@ -66,20 +66,15 @@ final class WD_ac{
 	 * @return 
 	 */
 	public function activate(){
-		$installed = get_option('wd_ac_installed_time');
-		if (!$installed) {
-			update_option('wd_ac_installed_time',time());
-		}
-		update_option('wd_ac_version',WD_AC_VERSION);
+		$installer = new Wd\Ac\Installer();
+		$installer->run();
 	}
 
 	public function init_plugin(){
 		if (is_admin()) {
 			new Wd\Ac\Admin();	
 		}else{
-			
 			new Wd\Ac\Frontend();	
-			
 		}
 		
 	}
