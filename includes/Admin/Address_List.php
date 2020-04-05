@@ -72,7 +72,7 @@ class Address_List extends \WP_List_Table{
 
 
         $this->_column_headers = array($this->get_columns(),array(),$this->get_shortable_columns());
-        $this->items    = wd_ac_get_address($args);
+        $this->items    = wd_ac_get_addresses($args);
         $this->set_pagination_args([
             'total_items'   =>$total_items,
             'per_page'      => $per_page,
