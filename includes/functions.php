@@ -89,8 +89,20 @@ function wd_ac_get_addresses($args=[]){
 */
 
 function wd_ac_address_count(){
-	global $wpdb ;
-	return (int) $wpdb->get_var("SELECT count(id) FROM {$wpdb->prefix}wd_ac_addreses");
+
+	global $wpdb;
+
+    $count = wp_cache_get( 'count', 'address' );
+
+    if ( false === $count ) {
+        $count = (int) $wpdb->get_var( "SELECT count(id) FROM {$wpdb->prefix}wd_ac_addreses" );
+
+        wp_cache_set( 'count', $count, 'address' );
+       
+    }
+
+    return $count;
+
 }
 
 
@@ -104,9 +116,23 @@ function wd_ac_address_count(){
 function wd_ac_get_address( $id ) {
     global $wpdb;
 
-    return $wpdb->get_row(
-        $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wd_ac_addreses WHERE id = %d", $id )
-    );
+    // return $wpdb->get_row(
+    //     $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wd_ac_addreses WHERE id = %d", $id )
+    // );
+
+    $address = wp_cache_get( 'book-' . $id, 'address' );
+
+    if ( false === $address ) {
+        $address = $wpdb->get_row(
+            $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wd_ac_addreses WHERE id = %d", $id )
+        );
+
+        wp_cache_set( 'book-' . $id, $address, 'address' );
+    }
+
+    return $address;
+
+
 }
 
 

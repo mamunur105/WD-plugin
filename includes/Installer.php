@@ -38,4 +38,5 @@ class Installer
 
 		dbDelta($sql_query);
 	}
+	
 }

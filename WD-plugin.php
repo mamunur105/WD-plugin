@@ -37,6 +37,7 @@ final class WD_ac{
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
 		add_action('plugin_loaded',[ $this,'init_plugin' ]);
 	}
+
 	/**
 	 * initilize a singleton instance
 	 * @return \WD_ac
@@ -48,11 +49,11 @@ final class WD_ac{
 		}
 		return $instance;
 	}
+
 	/**
 	 *  Requred constant
 	 * @return \WD_ac
 	 */
-
 	public function define_constant(){
 		define('WD_AC_VERSION', self::version);
 		define('WD_AC_FILE', __FILE__);
@@ -71,6 +72,7 @@ final class WD_ac{
 	}
 
 	public function init_plugin(){
+		new Wd\Ac\Assets();
 		if (is_admin()) {
 			new Wd\Ac\Admin();	
 		}else{

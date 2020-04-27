@@ -11,7 +11,7 @@ class Shortcode
 	 * Initilize the class 
 	 */
 	function __construct(){
-		add_shortcode('wc-ac',[$this,'random_shortcode']);
+		add_shortcode('wd-ac',[$this,'random_shortcode']);
 	}
 	/**
 	 * Shortcode handles class
@@ -22,6 +22,9 @@ class Shortcode
 	 * @return string 
 	 */
 	function random_shortcode($attr,$contant){
-		return "Hello from shortcode";
+		wp_enqueue_script( 'academy-script' );
+        wp_enqueue_style( 'academy-style' );
+
+        return '<div class="academy-shortcode">Hello from Shortcode</div>';
 	}
 }
