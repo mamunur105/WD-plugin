@@ -35,7 +35,7 @@ final class WD_ac{
 		$this->define_constant();
 		// echo WD_AC_URL;
 		register_activation_hook(__FILE__,[ $this,'activate' ]);
-		add_action('plugin_loaded',[ $this,'init_plugin' ]);
+		add_action('plugins_loaded',[ $this,'init_plugin' ]);
 	}
 
 	/**
