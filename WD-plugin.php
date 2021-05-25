@@ -78,7 +78,7 @@ final class WD_ac{
 		}else{
 			new Wd\Ac\Frontend();	
 		}
-		
+		new Wd\Ac\API();
 	}
 
 
